@@ -1,4 +1,5 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
+from rest_framework_simplejwt.tokens import RefreshToken
 from users.models import  Users 
 
 
@@ -16,15 +17,21 @@ class UserRegisterSerializer(ModelSerializer):
            instance.set_password(password)
         instance.save()
         return instance
-        
+
 
 class UserInfoSerializer(ModelSerializer):
     
+    token = SerializerMethodField()
+    
     class Meta:
         model = Users
-        fields = ['id', 'email', 'username', 'first_name', 'last_name']
+        fields = ['id', 'email', 'username', 'first_name', 'last_name', 'token']
         
+    def get_token(self, obj):
+        refresh = RefreshToken.for_user(obj)
+        return str(refresh.access_token)
         
+                
 class UserUpadateSerializer(ModelSerializer):
     
     class Meta:
