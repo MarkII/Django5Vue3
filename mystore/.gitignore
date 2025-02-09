@@ -1,6 +1,7 @@
 ./envDjangoVue/
 envDjangoVue/
-../../envDjangoVue/
+.../envDjangoVue/
+*.sqlite3
 # Django #
 *.log
 *.pot
