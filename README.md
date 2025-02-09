@@ -22,3 +22,6 @@ django-admin startproject mystore
 ~~~
 python3 manage.py startapp "nombre de tu app"
 ~~~
+
+### El curso es un poco mierder asi que voy a hacerme una APIREST de una store.
+### Estara compuesto por una categoria, un producto, una orden y  el detalle de orden ademas del usuario, que lo extendemos de Django.
