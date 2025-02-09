@@ -17,4 +17,4 @@ class Producto(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, related_name="productos")
     
     def __str__(self):
-        return self.nombre + str(self.precio)
+        return self.nombre
